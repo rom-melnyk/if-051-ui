@@ -64,6 +64,14 @@ var UserSchema = new Schema({
     type: String,
     default: 'local'
   },
+  communities: {
+    type: Array,
+    default: []
+  },
+  challenges: {
+    type: Array,
+    default: []
+  },
   salt: String,
   resetPasswordToken: String,
   resetPasswordExpires: Date,
@@ -102,7 +110,7 @@ UserSchema.methods = {
   /**
    * HasRole - check if the user has required role
    *
-   * @param {String} plainText
+   * @param {String} role			plain text
    * @return {Boolean}
    * @api public
    */
