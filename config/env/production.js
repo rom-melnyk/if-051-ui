@@ -1,7 +1,6 @@
 'use strict';
 
 module.exports = {
-  db: 'mongodb://localhost/mean-prod',
   /**
    * Database options that will be passed directly to mongoose.connect
    * Below are some examples.
@@ -25,9 +24,6 @@ module.exports = {
       numberOfRetries: 2
     }
     */
-  },
-  app: {
-    name: 'MEAN - A Modern Stack - Production'
   },
   facebook: {
     clientID: 'APP_ID',

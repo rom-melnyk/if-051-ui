@@ -1,46 +1,47 @@
 'use strict';
 
 // User routes use users controller
-var users = require('../controllers/users'),
-    config = require('meanio').loadConfig();
+var users = require('../controllers/users')/*,
+    config = require('meanio').loadConfig()*/;
 
-module.exports = function(MeanUser, app, auth, database, passport) {
+module.exports = function(modUser, app, auth, database, passport) {
 
-  app.route('/logout')
+  app.route('/api/logout')
     .get(users.signout);
-  app.route('/users/me')
+  app.route('/api/users/me')
     .get(users.me);
 
   // Setting up the users api
-  app.route('/register')
+  app.route('/api/create-user')
     .post(users.create);
 
-  app.route('/forgot-password')
-    .post(users.forgotpassword);
+  // app.route('/forgot-password')
+  //   .post(users.forgotpassword);
 
-  app.route('/reset/:token')
-    .post(users.resetpassword);
+  // app.route('/reset/:token')
+  //   .post(users.resetpassword);
 
   // Setting up the userId param
   app.param('userId', users.user);
 
   // AngularJS route to check for authentication
-  app.route('/loggedin')
+  app.route('/api/logged-in')
     .get(function(req, res) {
       res.send(req.isAuthenticated() ? req.user : '0');
     });
 
   // Setting the local strategy route
-  app.route('/login')
+  app.route('/api/login')
     .post(passport.authenticate('local', {
       failureFlash: true
     }), function(req, res) {
       res.send({
         user: req.user,
-        redirect: (req.user.roles.indexOf('admin') !== -1) ? req.get('referer') : false
+        redirect: (req.user.roles.indexOf('admin') !== -1) ? req.get('ref') : false
       });
     });
 
+  /*
   // AngularJS route to get config of social buttons
   app.route('/get-config')
     .get(function (req, res) {
@@ -107,5 +108,5 @@ module.exports = function(MeanUser, app, auth, database, passport) {
     .get(passport.authenticate('linkedin', {
       failureRedirect: '#!/login'
     }), users.authCallback);
-
+  */
 };

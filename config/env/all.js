@@ -6,9 +6,9 @@ var path = require('path'),
 module.exports = {
   root: rootPath,
   http: {
-    port: process.env.PORT || 3000
+    port: process.env.PORT || 8000
   },
-  https: {
+  /*https: {
     port: false,
 
     // Paths to key and cert as string
@@ -16,9 +16,14 @@ module.exports = {
       key: '',
       cert: ''
     }
-  },
+  },*/
   hostname: process.env.HOST || process.env.HOSTNAME,
-  db: process.env.MONGOHQ_URL,
+  // db: process.env.MONGOHQ_URL,
+  db: 'mongodb://localhost/ita-051-gamification',
+  app: {
+    name: 'ITA 051 - Gamification'
+  },
+
   templateEngine: 'swig',
 
   // The secret should be set to a non-guessable string that

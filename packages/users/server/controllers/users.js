@@ -9,7 +9,8 @@ var mongoose = require('mongoose'),
   config = require('meanio').loadConfig(),
   crypto = require('crypto'),
   nodemailer = require('nodemailer'),
-  templates = require('../template');
+  templates = require('../template')/*,
+  formatResponse = require('_util')*/;
 
 /**
  * Auth callback
@@ -127,8 +128,7 @@ exports.user = function(req, res, next, id) {
 /**
  * Resets the password
  */
-
-exports.resetpassword = function(req, res, next) {
+/*exports.resetpassword = function(req, res, next) {
   User.findOne({
     resetPasswordToken: req.params.token,
     resetPasswordExpires: {
@@ -163,23 +163,23 @@ exports.resetpassword = function(req, res, next) {
       });
     });
   });
-};
+};*/
 
 /**
  * Send reset password email
  */
-function sendMail(mailOptions) {
+/*function sendMail(mailOptions) {
   var transport = nodemailer.createTransport(config.mailer);
   transport.sendMail(mailOptions, function(err, response) {
     if (err) return err;
     return response;
   });
-}
+}*/
 
 /**
  * Callback for forgot password link
  */
-exports.forgotpassword = function(req, res, next) {
+/*exports.forgotpassword = function(req, res, next) {
   async.waterfall([
 
       function(done) {
@@ -229,4 +229,4 @@ exports.forgotpassword = function(req, res, next) {
       res.json(response);
     }
   );
-};
+};*/

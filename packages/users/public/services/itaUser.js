@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mean.users').factory('MeanUser', [
+angular.module('ita.users').factory('itaUser', [
 
   function() {
     return {

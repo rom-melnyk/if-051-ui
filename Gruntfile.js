@@ -20,7 +20,7 @@ module.exports = function(grunt) {
     watch: {
       js: {
         files: paths.js,
-        tasks: ['jshint'],
+        tasks: [], // TODO place 'jshint' after dev
         options: {
           livereload: true
         }
@@ -34,7 +34,7 @@ module.exports = function(grunt) {
       },
       css: {
         files: paths.css,
-        tasks: ['csslint'],
+        tasks: [], // TODO place 'csslint' after dev
         options: {
           livereload: true
         }
@@ -117,7 +117,7 @@ module.exports = function(grunt) {
   if (process.env.NODE_ENV === 'production') {
     grunt.registerTask('default', ['clean', 'cssmin', 'uglify', 'concurrent']);
   } else {
-    grunt.registerTask('default', ['clean', 'jshint', 'csslint', 'concurrent']);
+    grunt.registerTask('default', ['clean', /*'jshint',*/ 'csslint', 'concurrent']); // TODO remove after dev
   }
 
   //Test task.

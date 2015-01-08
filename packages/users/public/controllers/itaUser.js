@@ -3,8 +3,8 @@
 var clientIdProperty = 'clientID',
   defaultPrefix = 'DEFAULT_';
 
-angular.module('mean.users')
-  .controller('AuthCtrl', ['$scope', '$rootScope', '$http', '$location', 'Global',
+angular.module('ita.users')
+  /*.controller('AuthCtrl', ['$scope', '$rootScope', '$http', '$location', 'Global',
     function($scope, $rootScope, $http, $location, Global) {
       // This object will contain list of available social buttons to authorize
       $scope.socialButtons = {};
@@ -21,7 +21,7 @@ angular.module('mean.users')
           }
         });
     }
-  ])
+  ])*/
   .controller('LoginCtrl', ['$scope', '$rootScope', '$http', '$location', 'Global',
     function($scope, $rootScope, $http, $location, Global) {
       // This object will be filled by the form
@@ -69,6 +69,10 @@ angular.module('mean.users')
             $scope.loginerror = 'Authentication failed.';
           });
       };
+
+      /*$http.get('/users/assets/test-data.json').success(function(resp) {
+        console.log(resp);
+      });*/
     }
   ])
   .controller('RegisterCtrl', ['$scope', '$rootScope', '$http', '$location', 'Global',
@@ -128,7 +132,7 @@ angular.module('mean.users')
       };
     }
   ])
-  .controller('ForgotPasswordCtrl', ['$scope', '$rootScope', '$http', '$location', 'Global',
+  /*.controller('ForgotPasswordCtrl', ['$scope', '$rootScope', '$http', '$location', 'Global',
     function($scope, $rootScope, $http, $location, Global) {
       $scope.user = {};
       $scope.global = Global;
@@ -145,8 +149,8 @@ angular.module('mean.users')
           });
       };
     }
-  ])
-  .controller('ResetPasswordCtrl', ['$scope', '$rootScope', '$http', '$location', '$stateParams', 'Global',
+  ])*/
+  /*.controller('ResetPasswordCtrl', ['$scope', '$rootScope', '$http', '$location', '$stateParams', 'Global',
     function($scope, $rootScope, $http, $location, $stateParams, Global) {
       $scope.user = {};
       $scope.global = Global;
@@ -178,4 +182,4 @@ angular.module('mean.users')
           });
       };
     }
-  ]);
+  ])*/;

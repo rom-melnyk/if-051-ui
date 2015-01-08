@@ -1,7 +1,7 @@
 'use strict';
 
 //Setting up route
-angular.module('mean.users').config(['$meanStateProvider',
+angular.module('ita.users').config(['$meanStateProvider',
   function($meanStateProvider) {
     // Check if the user is not connected
     var checkLoggedOut = function($q, $timeout, $http, $location) {
@@ -9,7 +9,7 @@ angular.module('mean.users').config(['$meanStateProvider',
       var deferred = $q.defer();
 
       // Make an AJAX call to check if the user is logged in
-      $http.get('/loggedin').success(function(user) {
+      $http.get('/api/logged-in').success(function(user) {
         // Authenticated
         if (user !== '0') {
           $timeout(deferred.reject);
@@ -39,7 +39,7 @@ angular.module('mean.users').config(['$meanStateProvider',
       })
       .state('auth.register', {
         url: '/register',
-        templateUrl: 'users/views/register.html',
+        templateUrl: 'users/views/create-user.html',
         resolve: {
           loggedin: checkLoggedOut
         }
