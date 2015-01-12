@@ -1,1 +1,1 @@
-README: theme
+The theme package; the place where the core assets are stored

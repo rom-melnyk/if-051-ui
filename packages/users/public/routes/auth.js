@@ -38,22 +38,8 @@ angular.module('ita.users').config(['$meanStateProvider',
         }
       })
       .state('auth.register', {
-        url: '/register',
+        url: '/create-user',
         templateUrl: 'users/views/create-user.html',
-        resolve: {
-          loggedin: checkLoggedOut
-        }
-      })
-      .state('forgot-password', {
-        url: '/forgot-password',
-        templateUrl: 'users/views/forgot-password.html',
-        resolve: {
-          loggedin: checkLoggedOut
-        }
-      })
-      .state('reset-password', {
-        url: '/reset/:tokenId',
-        templateUrl: 'users/views/reset-password.html',
         resolve: {
           loggedin: checkLoggedOut
         }
