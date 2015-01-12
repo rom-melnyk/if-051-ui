@@ -1,27 +1,11 @@
 'use strict';
-// To avoid displaying unneccesary social logins
-var clientIdProperty = 'clientID',
-  defaultPrefix = 'DEFAULT_';
 
 angular.module('ita.users')
-  /*.controller('AuthCtrl', ['$scope', '$rootScope', '$http', '$location', 'Global',
+  .controller('AuthCtrl', ['$scope', '$rootScope', '$http', '$location', 'Global',
     function($scope, $rootScope, $http, $location, Global) {
-      // This object will contain list of available social buttons to authorize
-      $scope.socialButtons = {};
-      $scope.socialButtonsCounter = 0;
       $scope.global = Global;
-      $http.get('/get-config')
-        .success(function(config) {
-          for (var conf in config) {
-            // Do not show auth providers that have the value DEFAULT as their clientID
-            if (config[conf].hasOwnProperty(clientIdProperty) && config[conf][clientIdProperty].indexOf(defaultPrefix) === -1) {
-              $scope.socialButtons[conf] = true;
-              $scope.socialButtonsCounter += 1;
-            }
-          }
-        });
     }
-  ])*/
+  ])
   .controller('LoginCtrl', ['$scope', '$rootScope', '$http', '$location', 'Global',
     function($scope, $rootScope, $http, $location, Global) {
       // This object will be filled by the form
@@ -45,7 +29,7 @@ angular.module('ita.users')
 
       // Register the login() function
       $scope.login = function() {
-        $http.post('/login', {
+        $http.post('/api/login', {
           email: $scope.user.email,
           password: $scope.user.password
         })
@@ -131,55 +115,4 @@ angular.module('ita.users')
           });
       };
     }
-  ])
-  /*.controller('ForgotPasswordCtrl', ['$scope', '$rootScope', '$http', '$location', 'Global',
-    function($scope, $rootScope, $http, $location, Global) {
-      $scope.user = {};
-      $scope.global = Global;
-      $scope.global.registerForm = false;
-      $scope.forgotpassword = function() {
-        $http.post('/forgot-password', {
-          text: $scope.user.email
-        })
-          .success(function(response) {
-            $scope.response = response;
-          })
-          .error(function(error) {
-            $scope.response = error;
-          });
-      };
-    }
-  ])*/
-  /*.controller('ResetPasswordCtrl', ['$scope', '$rootScope', '$http', '$location', '$stateParams', 'Global',
-    function($scope, $rootScope, $http, $location, $stateParams, Global) {
-      $scope.user = {};
-      $scope.global = Global;
-      $scope.global.registerForm = false;
-      $scope.resetpassword = function() {
-        $http.post('/reset/' + $stateParams.tokenId, {
-          password: $scope.user.password,
-          confirmPassword: $scope.user.confirmPassword
-        })
-          .success(function(response) {
-            $rootScope.user = response.user;
-            $rootScope.$emit('loggedin');
-            if (response.redirect) {
-              if (window.location.href === response.redirect) {
-                //This is so an admin user will get full admin page
-                window.location.reload();
-              } else {
-                window.location = response.redirect;
-              }
-            } else {
-              $location.url('/');
-            }
-          })
-          .error(function(error) {
-            if (error.msg === 'Token invalid or expired')
-              $scope.resetpassworderror = 'Could not update password as token is invalid or may have expired';
-            else
-              $scope.validationError = error;
-          });
-      };
-    }
-  ])*/;
+  ]);

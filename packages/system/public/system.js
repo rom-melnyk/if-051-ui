@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('mean.system', ['mean-factory-interceptor']);
+angular.module('ita.system', ['mean-factory-interceptor']);

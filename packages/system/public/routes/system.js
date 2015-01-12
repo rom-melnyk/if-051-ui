@@ -1,7 +1,7 @@
 'use strict';
 
 // $viewPathProvider, to allow overriding system default views
-angular.module('mean.system').provider('$viewPath', function() {
+angular.module('ita.system').provider('$viewPath', function() {
   function ViewPathProvider() {
     var overrides = {};
 
@@ -27,7 +27,7 @@ angular.module('mean.system').provider('$viewPath', function() {
 });
 
 // $meanStateProvider, provider to wire up $viewPathProvider to $stateProvider
-angular.module('mean.system').provider('$meanState', ['$stateProvider', '$viewPathProvider', function($stateProvider, $viewPathProvider) {
+angular.module('ita.system').provider('$meanState', ['$stateProvider', '$viewPathProvider', function($stateProvider, $viewPathProvider) {
   this.state = function(stateName, data) {
     if (data.templateUrl) {
       data.templateUrl = $viewPathProvider.path(data.templateUrl);
@@ -42,7 +42,7 @@ angular.module('mean.system').provider('$meanState', ['$stateProvider', '$viewPa
 }]);
 
 //Setting up route
-angular.module('mean.system').config(['$meanStateProvider', '$urlRouterProvider',
+angular.module('ita.system').config(['$meanStateProvider', '$urlRouterProvider',
   function($meanStateProvider, $urlRouterProvider) {
     // For unmatched routes:
     $urlRouterProvider.otherwise('/');

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mean.theme')
+angular.module('ita.theme')
 	.controller('ThemeController', ['$scope', 'Global', '$location', '$rootScope',
 	  function($scope, Global, $location, $rootScope) {
 	 		$rootScope.$on('$stateChangeStart',

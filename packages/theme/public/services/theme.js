@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mean.theme').factory('Theme', [
+angular.module('ita.theme').factory('Theme', [
   function() {
     return {
       name: 'theme'

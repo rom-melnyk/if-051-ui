@@ -9,7 +9,7 @@ exports.render = function(req, res) {
   for (var name in mean.modules) {
     modules.push({
       name: name,
-      module: 'mean.' + name,
+      module: 'ita.' + name,
       angularDependencies: mean.modules[name].angularDependencies
     });
   }
