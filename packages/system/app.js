@@ -20,6 +20,7 @@ SystemPackage.register(function(app, auth, database) {
 
   SystemPackage.aggregateAsset('css', 'common.css');
   SystemPackage.aggregateAsset('css', 'nav-bar.css');
+  SystemPackage.aggregateAsset('css', 'sidebar.css');
 
   // The middleware in config/express will run before this code
 

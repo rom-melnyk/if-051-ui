@@ -1,0 +1,130 @@
+/* General styles for all menus */
+
+.cbp-spmenu {
+    position: relative;
+	background: #191919;
+	position: fixed;
+    z-index: 2;
+}
+.cbp-spmenu > hr {
+	border: 1px solid #262926;
+}
+.cbp-spmenu > .logoFlag {
+	position: absolute;
+	left: 98%;
+	top: 50px;
+}
+.cbp-spmenu > .ssLogo {
+	margin-top: 20px;
+}
+.cbp-spmenu > .navLinks > a span.label {
+	float: right;
+}
+.cbp-spmenu h3 {
+	color: #fff;
+	font-size: 1.9em;
+	padding: 20px;
+	margin: 0;
+	font-weight: 300;
+	background: #191919;
+	/* Background for title of sidebar */
+}
+.cbp-spmenu > .navLinks a {
+	display: block;
+	color: #fff;
+	font-size: 1.1em;
+	font-weight: 300;
+	text-decoration: none;
+}
+.cbp-spmenu > .navLinks a:hover {
+	background: #383838;
+	/* Background for a block */
+	
+	text-decoration: none;
+}
+.cbp-spmenu > .navLinks a:focus {
+	color: #fff;
+}
+.cbp-spmenu > .navLinks a:active {
+	background: #BFBFBF;
+	text-decoration: none;
+}
+/* Orientation-dependent styles for the content of the menu */
+
+.cbp-spmenu-vertical {
+	width: 240px;
+	height: 100%;
+	top: 0;
+	z-index: 1000;
+}
+.cbp-spmenu-vertical > .navLinks a {
+	border-bottom: 1px solid #262926;
+	/* Background for links*/
+	
+	padding: 1em;
+}
+/* Vertical menu that slides from the left or right */
+
+.cbp-spmenu-left {
+	left: -240px;
+}
+.cbp-spmenu-right {
+	right: -240px;
+}
+.cbp-spmenu-left.cbp-spmenu-open {
+	left: 0px;
+}
+.cbp-spmenu-right.cbp-spmenu-open {
+	right: 0px;
+}
+/* Transitions */
+
+.cbp-spmenu,
+.cbp-spmenu-push {
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+/* Sidebad user profile and show */
+
+.media {
+	display: block;
+	position: relative;
+	padding: 0px 5px 15px;
+	margin: 20px 0 0 0;
+	border-bottom: 1px solid #1F2429;
+	color: #fff;
+}
+.media-heading {
+	margin: 0 0 5px;
+}
+strong {
+	font-weight: 1em;
+}
+.media-heading strong {
+	font-size: 1.5em;
+}
+.media a {
+	cursor: pointer;
+	font-size: 14px;
+	margin-left: 10px;
+	text-decoration: none;
+}
+.media > .mediaBody a {
+	margin: 0 15px 0 0;
+	text-decoration: none;
+}
+/* Example media queries */
+
+@media screen and (max-width: 55.1875em) {
+	.cbp-spmenu-horizontal {
+		font-size: 75%;
+		height: 110px;
+	}
+	.cbp-spmenu-top {
+		top: -110px;
+	}
+	.cbp-spmenu-bottom {
+		bottom: -110px;
+	}
+}
