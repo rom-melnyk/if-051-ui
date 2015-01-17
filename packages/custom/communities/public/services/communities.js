@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mean.communities').factory('Communities', [
+angular.module('ita.communities').factory('Communities', [
   function() {
     return {
       name: 'communities'

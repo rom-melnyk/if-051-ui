@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mean.communities').config(['$stateProvider',
+angular.module('ita.communities').config(['$stateProvider',
   function($stateProvider) {
     $stateProvider.state('communities example page', {
       url: '/communities/example',
