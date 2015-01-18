@@ -1,5 +1,52 @@
 'use strict';
 
+// $viewPathProvider, to allow overriding system default views
+angular.module('ita.users').provider('$viewPath', function() {
+  function ViewPathProvider() {
+    var overrides = {};
+
+    this.path = function(path) {
+      return function() {
+        return overrides[path] || path;
+      };
+    };
+
+    this.override = function(defaultPath, newPath) {
+      if (overrides[defaultPath]) {
+        throw new Error('View already has an override: ' + defaultPath);
+      }
+      overrides[defaultPath] = newPath;
+    };
+
+    this.$get = function() {
+      return this;
+    };
+  }
+
+  return new ViewPathProvider();
+}); 
+
+
+
+// $meanStateProvider, provider to wire up $viewPathProvider to $stateProvider
+angular.module('ita.users').provider('$meanState', ['$stateProvider', '$viewPathProvider', function($stateProvider, $viewPathProvider) {
+  this.state = function(stateName, data) {
+    if (data.templateUrl) {
+      data.templateUrl = $viewPathProvider.path(data.templateUrl);
+    }
+    $stateProvider.state(stateName, data);
+    return this;
+  };
+
+  this.$get = function() {
+    return this;
+  };
+}]);
+
+
+
+
+
 //Setting up route
 angular.module('ita.users').config(['$meanStateProvider',
   function($meanStateProvider) {
