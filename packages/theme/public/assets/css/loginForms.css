@@ -2,8 +2,8 @@ html {
     height: 100%;
 }
 
-body.login, body.register,  body.forgot-password {
-background: url("/theme/assets/img/bg.png");
+body.login, body.register,  body.forgot-password, body.create-user {
+background: url("/theme/assets/img/sativa.png");
     height: 100%;
     position: relative;
 }
@@ -13,6 +13,29 @@ background: url("/theme/assets/img/bg.png");
     src: url("/theme/assets/fonts/ufonts.com_futura-book.eot?#iefix") format("embedded-opentype"), url("/theme/assets/fonts/ufonts.com_futura-book.woff") format("woff"), url("/theme/assets/fonts/ufonts.com_futura-book.ttf") format("truetype"), url("/theme/assets/fonts/ufonts.com_futura-book.svg#futura_bkbook") format("svg");
     font-weight: normal;
     font-style: normal;
+}
+
+.main-form::before,
+.main-form::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 3.5px;
+    left: 0;
+    background: #fff;
+    z-index: -1;
+    -webkit-transform: rotateZ(4deg);
+    -moz-transform: rotateZ(4deg);
+    -ms-transform: rotateZ(4deg);
+    border: 1px solid #ccc;
+}
+.main-form::after {
+    top: 5px;
+    z-index: -2;
+    -webkit-transform: rotateZ(-2deg);
+    -moz-transform: rotateZ(-2deg);
+    -ms-transform: rotateZ(-2deg);
 }
 
 @font-face {
@@ -56,7 +79,7 @@ background: url("/theme/assets/img/bg.png");
 
 .main-form {
     width: 748px;
-    height: 435px;
+    height: 490px;
     margin-left: -374px;
 }
 
@@ -78,12 +101,13 @@ background: url("/theme/assets/img/bg.png");
     margin: 0;
     text-transform: uppercase;
 }
-
+.loginLogo {
+    text-align: center;
+}
 .login-form__left p, .forgot_password_form p {
     font-size: 16px;
     font-family: 'proxima_nova_rgregular';
 }
-
 .main-form .input-wrapper {
     position: relative;
     margin-bottom: 10px;
@@ -280,7 +304,7 @@ background: url("/theme/assets/img/bg.png");
 }
 
 .login-form__center p {
-    margin-top: 155px;
+    margin-top: 170px;
     font-family: 'proxima_novalight';
     font-size: 16px;
 }
