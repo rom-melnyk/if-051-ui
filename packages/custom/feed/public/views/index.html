@@ -1,28 +1,49 @@
-<div class="" data-ng-controller="FeedController">
-  <h1>Example view from your new awesome package</h1>
-  <h2>Package: {{package.name}}</h2>
-  <ol>
-    <li>
-      <a href="feed/example/anyone">Server route that anyone can access</a>
-    </li>
-    <li>
-      <a href="feed/example/auth">Server route that requires authentication</a>
-    </li>
-    <li>
-      <a href="feed/example/admin">Server route that requires admin user</a>
-    </li>
-    <li>
-      <a href="feed/example/render">Raw Html rendering example from using swig</a>
-    </li>
-  </ol>
-  <h3><img src="/feed/assets/img/logo.png" /></h3>
-  </br>
-  <p class="alert alert-info">You can find your package in /packages/feed</p>
-  </br>
-  <p class="alert alert-warning">MEAN versions prior to 0.3.2 will be in /node_modules/feed</p>
-  </br>
-  <h3><a href="http://www.mean.io/#!/docs">Documentation</a></h3>
-  </br>
-{{1 + 2}}
-</div>
+<div class="champion">Our Champions!</div>
+   
+    <div class="topRank">
+        <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4"><a href="URL"><img src="img/champion1.png" width="110" height="110" alt="..." class="img-circle"></a></div>
+        <div class="col-sm-4"></div>
+      </div>
 
+    </div>
+    </div>
+    <div class="secondRank">
+        <div class="row">
+
+         
+        <div class="col-sm-2"></div>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-2"><a href="URL"><img src="img/champion2.png" width="110" height="110" alt="..." class="img-circle"></a></div>
+        <div class="col-sm-2"><a href="URL"><img src="img/champion3.png" width="110" height="110" alt="..." class="img-circle"></a></div>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-2"></div>
+
+
+
+
+        </div>
+    </div>
+    <div ng-controller="CarouselDemoCtrl">
+  <div style="height: 305px">
+    <carousel interval="myInterval">
+      <slide ng-repeat="slide in slides" active="slide.active">
+        <img ng-src="{{slide.image}}" style="margin:auto;">
+        <div class="carousel-caption">
+          <h4>Slide {{$index}}</h4>
+          <p>{{slide.text}}</p>
+        </div>
+      </slide>
+    </carousel>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <button type="button" class="btn btn-info" ng-click="addSlide()">Add Slide</button>
+    </div>
+    <div class="col-md-6">
+      Interval, in milliseconds: <input type="number" class="form-control" ng-model="myInterval">
+      <br />Enter a negative number or 0 to stop the interval.
+    </div>
+  </div>
+</div>
