@@ -1,8 +1,8 @@
-<div id="page-content-wrapper" ng-controller="UserProfile">
+<div id="page-content-wrapper">
 		<div class="container-fluid mainPageContent">
 			<div class="row">
 				<hr>
-				<div class="row content">
+				<div class="row">
 
 					<div class="col-md-4">
 						<div class="avatarContent">
@@ -21,15 +21,15 @@
 					<div class="col-md-8">
 						<div class="mainProfileInfo">
 							<div class="userProfileTitle">
-								<p> Main Information<span class="editLink"><a href="#profile-edit">Edit</a></span>
+								<p> Main Information<span class="editLink"></span>
 								</p>
 							</div>
 							<hr>
 							<div class="row">
 								<div class="col-xs-12 col-md-10">
-									<table class="table table-striped userInfo" ng-repeat="users in usersData">
+									<table class="table table-striped userInfo">
 									    <tr>
-									       <td><h4>Firstname:</h4></td>
+									       <td><h4>Firstname:</h4></td> 
 									       <td><h4>{{users.firstname}}</h4></td>
 									    </tr>
 									    <tr>

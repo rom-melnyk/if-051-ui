@@ -1,0 +1,109 @@
+/* Main style file for user info pages */
+html > body {
+			background-color: #e8e8e8;
+            /*font-size: 1em;*/
+            min-width: 600px;
+		}
+
+body hr {
+    border: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.5), rgba(0,0,0,0)); 
+    background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.5), rgba(0,0,0,0)); 
+    background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.5), rgba(0,0,0,0)); 
+    background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.5), rgba(0,0,0,0)); 
+    opacity:0.5;
+}
+.mainPageContent {
+    width:80%;
+    background:#fff;
+    padding: 20px;
+      border-radius: 2px 2px 2px 2px;
+    -webkit-box-shadow: 0 1px 4px
+     rgba(0, 0, 0, 0.3), 0 0 40px
+     rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;    box-shadow: 0 1px 4px
+     rgba(0, 0, 0, 0.3), 0 0 40px
+     rgba(0, 0, 0, 0.1) inset;
+    
+}
+#page-content-wrapper {
+    position: relative;
+    margin-bottom: 50px;
+}
+.avatarContent {
+    width:auto;
+    margin:0 auto;
+    text-align:center;
+    margin-top:50px;
+}
+.chAvatar {
+    position:relative;
+    text-align:center;
+    top:20px;
+}
+.badgesArea {
+    top:30px;
+    position:relative;
+    left:15%;
+    display:inline-flex;
+}
+.badgesText {
+    text-align:center;
+    position:relative;
+    display:block;
+    font-size:2em;
+    color:#fff;
+    top:30px;
+}
+.logoutBut {
+    display:block;
+    position:relative;
+    top:50px;
+    text-align:center;
+}
+.controlBadges {
+    position:relative;
+    top:50px;
+    margin-left:10%;
+    margin-right:10%;
+    text-align: center;
+}
+.formControll {
+    position:relative;
+    top:10px;
+}
+.userProfileStats {
+    margin-top:20px;
+	color: #000000;
+	font-size:2em;
+}
+.mainProfileInfo {
+    margin:10px;
+    width:auto;
+}
+.userShowCCB {
+    text-align:center;
+}
+.userProfileTitle > p {
+    font-size:1.5em;
+}
+.userProfileTitle > p >.editLink {
+    float:right;
+    margin-right: 20%;
+}
+.userInfo {
+    position: relative;
+    width: 100%;
+    top:-20px;
+}
+.comTable {
+    margin-left:10px;
+}
+.badgTable {
+    margin:0 auto;
+}
+.navbar-header {
+float: left;
+margin-top: -10px;
+}

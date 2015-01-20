@@ -1,0 +1,145 @@
+<div id="page-content-wrapper">
+    <div class="container-fluid mainPageContent">
+        <div class="row">
+            <hr>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="avatarContent">
+                        <img width="150px" height="150px" src="http://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Beethoven.jpg/210px-Beethoven.jpg" class="img-thumbnail"></img>
+                        <!-- Button -->
+                        <div class="chAvatar">
+                            <button name="chAvatar" class="btn btn-info">Change Avatar</button>
+                        </div>
+                    </div>
+                    <div class="controlBadges">
+                        <form class="form-horizontal">
+                            <fieldset>
+
+                                <!-- Form Name -->
+                                <legend>Badges in profile page:</legend>
+                                <hr>
+                                <!-- Select Basic -->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="controlBadges">Show badges:</label>
+                                    <div class="col-md-8">
+                                        <select id="showBudg" name="controlBadges" class="form-control">
+                                            <option value="l6">Last 6</option>
+                                            <option value="b6">Best 6</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Button -->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="badgSave"></label>
+                                    <div class="col-md-4">
+                                        <button id="badgSave" name="badgSave" class="btn btn-primary">Save</button>
+                                    </div>
+                                </div>
+
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="formControll">
+                        <form class="form-horizontal" name="login" method="post">
+                            <fieldset>
+                                <!-- Form for Login information -->
+                                <legend>Login information</legend>
+                                <!-- Text input-->
+                                <hr>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="userEmail">Email:</label>
+                                    <div class="col-md-6">
+                                        <input id="userEmail" name="userEmail" type="text" placeholder="******@gmail.com" class="form-control input-md">
+
+                                    </div>
+                                </div>
+
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="userPassword">Password:</label>
+                                    <div class="col-md-6">
+                                        <input id="userPassword" name="userPassword" type="text" placeholder="*********" class="form-control input-md" disabled>
+
+                                    </div>
+                                </div>
+
+                                <!-- -->
+
+                            </fieldset>
+                        </form>
+
+                        <form class="form-horizontal" name="mainInfo" method="post">
+                            <fieldset>
+
+                                <!-- Form Name -->
+                                <legend>Main information {{name}}</legend>
+                                <hr>
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="firstName">Firstname:</label>
+                                    <div class="col-md-6">
+                                        <input id="firstName" name="firstName" type="text" placeholder="{{users.firstname}}" class="form-control input-md" ng-model="name">
+
+                                    </div>
+                                </div>
+
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="lastName">Lastname:</label>
+                                    <div class="col-md-6">
+                                        <input id="lastName" name="lastName" type="text" placeholder="{{users.lastname}}" class="form-control input-md">
+
+                                    </div>
+                                </div>
+
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="userCity">City/Town:</label>
+                                    <div class="col-md-6">
+                                        <input id="userCity" name="userCity" type="text" placeholder="Bonn" class="form-control input-md">
+
+                                    </div>
+                                </div>
+
+                                <!-- Prepended text-->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="userPhone">Phone:</label>
+                                    <div class="col-md-6">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">+380</span>
+                                            <input id="userPhone" name="userPhone" class="form-control" placeholder="{{users.phone}}" type="text">
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- Prepended text-->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="userAge">Age:</label>
+                                    <div class="col-md-6">
+                                        <input id="userAge" name="userPhone" class="form-control" placeholder="" type="date">
+
+
+                                    </div>
+                                </div>
+                                <!-- Button (Double) -->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="saveButton"></label>
+                                    <div class="col-md-8">
+                                        <button id="saveButton" name="saveButton" class="btn btn-success" type="submit">Save</button>
+                                        <button id="resetButton" name="resetButton" class="btn btn-danger" type="reset">Reset</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+
+        </div>
+    </div>
+</div>

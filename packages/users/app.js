@@ -25,6 +25,8 @@ modUser.register(function(app, auth, passport, database) {
   // });
 
   modUser.aggregateAsset('js', 'itaUser.js');
+  modUser.aggregateAsset('css', 'user-style.css');
+  modUser.aggregateAsset('js', 'avatar.js');
 
   /**
     //Uncomment to use. Requires meanio@0.3.7 or above

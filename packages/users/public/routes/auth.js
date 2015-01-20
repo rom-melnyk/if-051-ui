@@ -43,10 +43,6 @@ angular.module('ita.users').provider('$meanState', ['$stateProvider', '$viewPath
   };
 }]);
 
-
-
-
-
 //Setting up route
 angular.module('ita.users').config(['$meanStateProvider',
   function($meanStateProvider) {
@@ -87,6 +83,20 @@ angular.module('ita.users').config(['$meanStateProvider',
       .state('auth.register', {
         url: '/create-user',
         templateUrl: 'users/views/create-user.html',
+        resolve: {
+          loggedin: checkLoggedOut
+        }
+      })
+        .state('profile', {
+        url: '/profile',
+        templateUrl: 'users/views/profile.html',
+        resolve: {
+          loggedin: checkLoggedOut
+        }
+      })
+        .state('edit', {
+        url: '/profile-edit',
+        templateUrl: 'users/views/profile-edit.html',
         resolve: {
           loggedin: checkLoggedOut
         }
