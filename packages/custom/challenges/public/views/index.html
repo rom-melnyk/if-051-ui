@@ -1,0 +1,379 @@
+<div class="container-fluid" data-ng-controller="ChallengesController">
+ 
+            <div class="row">  
+               <div class="col-sm-2 "> 
+                  <button type="button" ng-click="showUser()" class="btn btn-default btn-sm btn-info" id="buttonUser"> User </button>
+                  <button type="button" ng-click="showAdmin()" class="btn btn-default btn-sm btn-info" id="buttonAdmin"> Admin </button>
+              </div>
+            </div>  
+<!-- сайдбар активних челенджів і користувачів-->  
+        <div class="row">   
+            <div class="col-xs-12 col-sm-offset-0 col-sm-2 col-lg-offset-1"></br>
+
+                <div class="row">  
+                <div class="col-xs-6 col-sm-12">        
+                    <div class="row">    
+                        <button type="button" ng-click="activeSort()" class="col-xs-6 col-sm-12 btn btn-default text-center btn-block btn-primary">Active challenges</button>
+                    </div> 
+
+                    <div class="row">    
+                        <div class="btn-group btn-block">                  
+                            <button type="button" ng-click="socialSort()" class="col-xs-6 col-sm-12 col-md-6 btn btn-default btn-sm btn-info">Social</button>
+                            <button type="button" ng-click="professionalSort()" class="col-xs-6 col-sm-12 col-md-6 btn btn-default btn-sm btn-info">Proffesional</button>                    
+                        </div> 
+                    </div>
+
+                    <div class="row">    
+                        <div class="btn-group btn-block">                  
+                           <button type="button" ng-click="freeSort()" class="col-xs-6 col-sm-12 col-md-6 btn btn-default btn-sm btn-info">Free Time</button>
+                           <button type="button" ng-click="finishedSort()" class="col-xs-6 col-sm-12 col-md-6 btn btn-default btn-sm btn-info">Finished</button>                     
+                        </div> 
+                    </div>
+
+                    <div class="row"> 
+                        <div id="listActiveChallenges" class="list-group text-center">
+                            <a href="#" class="list-group-item" ng-class='{selected: $index==activeChallenge, sort: $index==isSort, notSort: $index==isNotSort}' ng-repeat="item in challenge | category:selectCategory" ng-click="previewChallenge(item.name, item.owner, item.deadline, item.description, item.points, item.winner, item.category, item.status, item.solution, $index)">{{item.name}}</a>  
+                        </div> 
+                    </div>
+                </div>
+
+                <div class="col-xs-offset-1 col-xs-5 col-sm-offset-0 col-sm-12">
+                    <div class="row">    
+                        <button type="button" class="col-xs-6 col-sm-12 btn btn-default btn-block btn-primary">Challenge Members</button>
+                    </div> 
+                    <div class="row">  
+                        <div id="listMembersChallenge" class="list-group text-center">
+                            <a href="#" class="list-group-item">Khrystyna-WebUI</a>
+                            <a href="#" class="list-group-item">Sasha-WebUI</a>
+                            <a href="#" class="list-group-item">Artur-WebUI</a>
+                            <a href="#" class="list-group-item">Anton-WebUI</a>
+                        </div> 
+                    </div>
+                </div>
+                </div> 
+
+                <div class="row">
+                    <div class="col-xs-12 text-center visible-xs"> 
+                        <p class="col-xs-12"><b><u>Create you own challenge:</u></b></p>
+                        <button type="button" id="buttonPushXs" class="btn btn-default btn-lg btn-success text-center">Push here </button>            
+                    </div>
+                </div></br>    
+            </div></br> 
+
+           
+        <div class="col-xs-12 col-sm-8 col-lg-6">           
+    
+            <div id="viewUser" ng-show='showForUser'> 
+            <div id="formCreateUser">
+                <div class="row">        
+                    <div class="col-xs-12"> 
+                        <p id="statusUserConnection"> <em>{{connectionToChallenge}}</em> </p>
+                    </div>
+                </div>
+                    <h3 class="text-center"> {{challengeName}} challenge</h3>
+                    <hr>
+
+                <div class="row">        
+                    <div class="text-center text-warning"> 
+                        <h4><b>Owner:</b><span><b>{{challengeOwner}}</b></span></h4>
+                    </div>
+                </div> </br>
+
+                <div class="row">        
+                    <div class="col-xs-3 col-md-2"> 
+                        <p class="text-right"><b>Category:</b></p>
+                    </div>
+                    <div class="col-xs-9 col-sm-3"> 
+                        <p>{{challengeCategory}}</p>
+                    </div>
+                    <div class="col-xs-3 col-sm-offset-1 col-sm-2 col-md-offset-2"> 
+                        <p class="text-right"><b>Deadline:</b></p>
+                    </div>
+                    <div class="col-xs-3 col-md-2"> 
+                        <p>{{challengeDeadline}}</p>
+                    </div>
+                </div> 
+                <div class="row">
+                    <div class="col-xs-3 col-sm-3 col-md-2"> 
+                        <p class="text-right"><b> Description: </b></p>
+                    </div>
+                    <div class="col-xs-9 col-sm-9 col-md-10"> 
+                        <p >{{challengeDescription}}</p>
+                    </div>
+                </div>  
+            
+                <div class="row">        
+                    <div class="col-xs-3 col-md-2"> 
+                        <p class="text-right"><b>Points:</b></p>
+                    </div>
+                    <div class="col-xs-2 col-sm-3 col-md-4"> 
+                        <p>{{challengePoints}}</p>
+                    </div>
+                    <div class="col-xs-3 col-sm-offset-1 col-sm-2"> 
+                        <p class="text-right"><b>Status:</b></p>
+                    </div>
+                    <div class="col-xs-4 col-sm-3"> 
+                        <p>{{challengeStatus}}</p>
+                    </div>
+                </div> 
+
+                <div class="row">        
+                    <div class="col-sm-4"> 
+                        <label for="selectBestSolution" class="control-label">Current best solutions:</label>
+                    </div>
+                    <div class="col-sm-8"> 
+                        <ol id="selectBestSolution" class="list-group" role="menu">
+                            <li class="list-group-item list-group-item-warning" role="presentation">{{bestSolution1}}</li>
+                            <li class="list-group-item list-group-item-warning" role="presentation">{{bestSolution2}}</li>
+                            <li class="list-group-item list-group-item-warning" role="presentation">{{bestSolution3}}</li>
+                        </ol>
+                    </div>
+                </div> 
+
+                <div class="row">        
+                    <div class="col-sm-12 text-center"> 
+                        <h4 class="text-success"><b>Challenge winner:</b> <span> <b> {{challengeWinner}}</b> </span></h4>
+                    </div>
+                </div> </br> 
+
+                <div class="row">        
+                    <div class="col-sm-offset-4 col-sm-8 col-md-6 col-md-offset-6"> 
+                        <div class="btn-group btn-group-justified" role="group">
+                            <div class="btn-group " role="group" >
+                            <button type="button" id="buttonConnect" ng-click="connectToChellenge()" class="btn btn-default btn-sm btn-info"> Connect to challenge </button>
+                        </div>
+                        <div class="btn-group " role="group">
+                            <button type="button" class="btn btn-default btn-sm btn-info"> Invite friends</button>
+                        </div>    
+                        </div>
+                    </div>
+                </div> 
+            </div> 
+
+            <div id="listSolutions">
+                <form id="inputUserSolution" class="form-horizontal" role="form" ng-show='inputSolutionVisible'>
+                    <div class="row" >
+                        <div class="col-xs-12">
+                            <label for="inputSolution" class="control-label">Input your solution: </label>  
+                            <input id="inputSolution" type="text" ng-model="newSolution" class="form-control btn-block">
+                        </div>      
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-offset-10 col-xs-2">
+                           <button type="submit" ng-click="addSolution(newSolution)" class="btn btn-block btn-sm btn-success">Send</button>
+                        </div>
+                    </div>
+                </form> 
+                <br>  
+                <div class="row" ng-show='mySolutionVisible'>
+                        <div class="col-xs-offset-1 col-xs-11">
+                            <p><u><b>My solution:</b></u> <span class="text-success"><b>{{mySolution}}</b></span></b></p>
+                        </div>      
+                    </div>    
+                <hr>
+                            <ul class="list-group" role="menu">
+                                <div ng-repeat="subitem in challengeSolution">
+                                    <li class="list-group-item list-group-item-warning col-xs-12"><b> Solution from {{subitem.userName}}:</b> {{subitem.solutionName}}</li>
+                                </div>
+                            </ul>                     
+            </div>
+            </div>
+
+
+<!-- Перегляд челенджів для адміністратора--> 
+
+            <div id="viewAdmin" ng-show="showForAdmin"> 
+            <div id="formCreateAdmin" >
+                    <h3 class="text-center"> {{challengeName}} challenge</h3>
+                    <hr>
+            
+                <div class="row">        
+                    <div class="text-center text-warning"> 
+                        <h4><b>Owner:</b> <span> <b> {{challengeOwner}} </b> </span></h4>
+                    </div>
+                </div> </br>
+
+                <div class="row">
+                    <div class="col-sm-7 col-md-7">
+                        <div class="form-group">
+                            <label for="inputDate" class="col-sm-3 control-label" disabled>Deadline:</label>
+                            <div class="col-sm-10 col-md-9">
+                                <input type="date" id="inputDate" disabled value="{{challengeDeadline}}"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                            </div>
+                        </div>  
+                    </div> 
+
+                    <div class="col-sm-5 col-md-5">
+                        <div class="form-group">
+                            <label for="selectCategory" class="col-xs-12 col-sm-offset-1 col-sm-4 col-md-offset-0 control-label">Category:</label>
+                            <div class="col-xs-6 col-sm-12 col-md-8">
+                                <select id="selectCategory" class="btn btn-default btn-block" disabled>
+                                    <option>{{challengeCategory}}</option>
+                                    <option>Free Time</option>
+                                    <option>Social</option>
+                                    <option>Profesional</option>
+                                </select> 
+                            </div>
+                        </div>
+                    </div>
+
+                </div></br>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="inputDescriptionUpdate" class="col-md-2 control-label" disabled>Description:</label>
+                        <div class="col-md-10">
+                            <textarea id="inputDescriptionUpdate" class="form-control" rows="3" disabled> {{challengeDescription}}</textarea>
+                        </div>
+                    </div>
+                </div> </br>
+
+                <div class="row">        
+                <div class="col-sm-6">
+                    <div class="form-group">
+                       <label for="inputPointsUpdate" class="col-xs-12 col-sm-9 col-md-3 control-label">Points:</label>  
+                       <div class="col-xs-6 col-sm-6 col-md-4">
+                       <input type="text" class="form-control" id="inputPointsUpdate" value="{{challengePoints}}" disabled> 
+                    </div>      
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                    <label for="selectStatusUpdate" class="col-xs-12 col-sm-8 col-sm-offset-3 col-md-3 control-label">Status:</label>
+                    <div class="col-xs-6 col-sm-8 col-sm-offset-2 col-md-offset-0 col-md-6">
+                    <select class="btn btn-default btn-block" id="selectUpdateStatus" disabled>
+                      <option>{{challengeStatus}}</option>
+                      <option> New </option>
+                      <option> In process </option>
+                      <option> Finished </option>
+                    </select> 
+                    </div>
+                    </div>    
+                </div>
+                </div> </br>
+
+                <div class="row">        
+                    <div class="col-sm-4"> 
+                        <label for="selectBestSolution" class="control-label">Current best solutions:</label>
+                    </div>
+                    <div class="col-sm-8"> 
+                        <ol id="selectBestSolution" class="list-group" role="menu" >
+                            <li class="list-group-item list-group-item-warning" role="presentation">{{bestSolution1}}</li>
+                            <li class="list-group-item list-group-item-warning" role="presentation">{{bestSolution2}}</li>
+                            <li class="list-group-item list-group-item-warning" role="presentation">{{bestSolution3}}</li>
+                        </ol>
+                    </div>
+                </div> 
+
+                <div class="row">        
+                    <div class="col-sm-12 text-center"> 
+                       <h4 class="text-success"><b>Challenge winner:</b> <span> <b>{{challengeWinner}}</b> </span></h4>
+                    </div>
+                </div> </br>
+
+                <div class="row">        
+                    <div class="col-xs-6 col-sm-4"> 
+                        <div class="btn-group btn-group-justified" role="group">
+                            <div class="btn-group " role="group" >
+                               <button type="button" class="btn btn-default btn-sm btn-info" id="buttonEdit"> Edit</button>
+                            </div>
+                            <div class="btn-group " role="group" >
+                                <button type="button" class="btn btn-default btn-sm btn-info">Delete</button>
+                            </div>    
+                        </div>
+                    </div>
+                    <div class="col-xs-2 col-xs-offset-2 col-sm-offset-6 col-sm-2"> 
+                        <button type="button" class="btn btn-default btn-sm btn-success">Save</button>                    
+                    </div>
+                </div>
+            </div>
+      
+<!-- Форма додавання і перегляду запропонованих рішень--> 
+            <div id="listSolutions">   
+                <hr>     
+                            <ul class="list-group" role="menu">
+                                <div ng-repeat="subitem in challengeSolution">
+                                    <li class="list-group-item list-group-item-warning col-xs-12 col-md-10"><b> Solution from {{subitem.userName}}:</b> {{subitem.solutionName}}</li>
+                                    <button type="submit" ng-click="addToBest(subitem.solutionName, subitem.userName)" class="btn btn-success col-xs-4 col-xs-offset-8 col-md-offset-0 col-md-2">Add to best</button> 
+                                </div>
+                            </ul>       
+            </div>             
+            </div>
+
+            </div> </br>
+           
+<!-- Кнопка переходу до створення челенджу--> 
+            <div class="col-xs-6 hidden-xs col-sm-2"> 
+                </br></br></br></br>
+                <p class="text-center"><b><u>Create you own challenge</u></b></p>
+                <button type="button" ng-click="showForm()" id="buttonPush" class="col-xs-offset-0 col-sm-offset-0 btn btn-default btn-block btn-lg btn-success text-center">Push here</button>           
+            </div>
+
+        </div>
+
+
+<!-- Вспливаюча форма створення челенджу--> 
+        <div id="popupCreate" ng-show='popupVisible'>
+            <h3 class="text-center">Now create your own challenge</h3>
+            <hr>
+            <form class="form-horizontal" name="formChallenge" role="form" ng-submit="formChallenge.$valid && sendChallenge()" novalidate>
+                <div class="form-group">
+                    <label for="inputTitle" class="col-xs-4 col-md-3 control-label">Title:</label>
+                    <div class="col-md-9 col-xs-12">
+                        <input type="text" name="challengeTitle" ng-model="titleName" class="form-control" id="inputTitle" required> 
+                    </div>
+                    <span class="col-sm-offset-3 col-sm-8 text-danger" ng-show="formChallenge.challengeTitle.$error.required"><em>Please input title!</em></span>
+                </div>
+            <div class="form-group">
+                <label for="inputDescription" class="col-md-3 col-xs-4 control-label">Description:</label>
+                <div class="col-md-9 col-xs-12" >
+                    <textarea class="form-control" name="challengeDescription" ng-model="descriptionName" rows="3" required></textarea>
+                </div>
+                <span class="col-sm-offset-3 col-sm-8 text-danger" ng-show="formChallenge.challengeDescription.$error.required"><em>Please describe your challenge!</em></span>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-5">
+                    <div class="form-group">
+                       <label for="inputPoints" class="col-xs-3 col-md-6 control-label">Points:</label>
+                       <div class="col-md-6 col-xs-3">
+                           <input type="number" name="challengePoints" ng-model="pointsName" class="form-control" id="inputPoints" placeholder="10-100" min="10" max="100" required>
+                       </div>
+                    </div>
+                </div>
+                <div class="col-md-7 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                        <label for="inputDate" class="col-md-4 col-sm-4 col-xs-4 control-label">Deadline:</label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <input type="text" name="challengeDeadline" ng-model="deadlineName" value="dd.mm.yy" id="inputDate" onfocus="this.select();lcs(this)" onclick="event.cancelBubble=true;this.select();lcs(this)"  required><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                </div>
+                <span class="col-sm-offset-1 col-sm-11 text-danger text-left" ng-show="formChallenge.challengePoints.$error.min"><em><b>Points: Too low!</b></em></span>
+                <span class="col-sm-offset-1 col-sm-12 text-danger text-left" ng-show="formChallenge.challengePoints.$error.max"><em><b>Points: Too high!</b></em></span>
+                <!--<span class="col-sm-offset-3 col-sm-9 pull-right text-danger" ng-show="formChallenge.challengeDeadline.$error.required"><em><b>Input date</b></em></span>-->
+            </div></br>
+
+            <div class="row">
+                <div class="col-xs-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-md-2 col-sm-2">
+                    <div class="form-group">              
+                        <button type="submit" ng-click='cancelChallenge()' class="btn btn-danger btn-block" id="buttonCreateCancel">Cancel</button>               
+                    </div>
+                </div>
+                <div class="col-md-offset-6 col-sm-offset-4 col-xs-offset-1 col-md-2 col-sm-2 col-xs-4">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success btn-block">Send</button>
+                    </div>  
+                </div> 
+            </div> 
+            </form>
+        </div> 
+
+        <div id="popupBackground" ng-show='showBack'>
+        </div>
+
+        <div id="sendedChallenge" class='text-center' ng-show='showSuccess'>
+            <p><b><u>Your challenge has succesfully sent for approving!!!</u></b></p>
+            <button type="submit" class="btn btn-success" ng-click='agreeSending()'>OK</button>
+        </div>
+    </div>  
+
+
